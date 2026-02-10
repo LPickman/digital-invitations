@@ -1,0 +1,205 @@
+/* =========================
+   RESET BÁSICO
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth;
+  transition: background 0.4s ease, color 0.4s ease;
+  background-color: #0f172a;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  transition: background-color 0.4s ease;
+}
+
+.navbar .nav-link {
+  color: white;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* =========================
+   ANIMACIONES DE ENTRADA
+========================= */
+
+.animate-up {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideUp 1s forwards;
+}
+
+.animate-fade {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease, color 0.4s ease;
+  height: 400px;
+  width: 100%;
+  align-items: center;
+  padding: 15px;
+}
+
+.card button {
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+  width: 180px;
+  height: 180px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* =========================
+   MODO CLARO
+========================= */
+
+body.light-mode {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/* Navbar clara */
+body.light-mode .navbar {
+  background-color: #ffffff !important;
+  color: #000 !important;
+}
+
+body.light-mode .navbar a {
+  color: #000 !important;
+}
+
+/* Hero claro */
+body.light-mode .hero {
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  color: #000;
+}
+
+/* Cards claras */
+body.light-mode .card {
+  background-color: #ffffff;
+  color: #000;
+}
+
+/* Footer claro */
+body.light-mode footer {
+  background-color: #f1f1f1 !important;
+  color: #000 !important;
+}
+
+/* Botón toggle en claro */
+body.light-mode #themeToggle {
+  border-color: #000 !important;
+  color: #000 !important;
+}
+
+/* =========================
+   RESPONSIVE EXTRA
+========================= */
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* ---------------------------------------------------------------*/
+
+.features {
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+.feature-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #ffffff;
+}
+
+.feature-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Soporte para modo oscuro */
+body:not(.light-mode) .features {
+    background-color: #1a1a1a !important;
+    color: #ffffff;
+}
+
+body:not(.light-mode) .feature-box {
+    background-color: #222;
+    color: #ffffff;
+}
+
+
+/*-------------------------*/
+.servicios-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
