@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gabriela & Alejandro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Preload imagen hero -->
+  <link rel="preload" as="image" href="assets/img/background-boda-1.jpeg">
+
+  <style>
+      h1 { font-size: 64px; }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- BOTONERA DE COLORES --> 
+  <div class="theme-switcher">
+    <button data-theme="salvia" class="active"></button>
+    <button data-theme="beige"></button>
+    <button data-theme="rosa"></button>
+  </div>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="overlay">
+      <h1 class="names">Gabriela & Alejandro</h1>
+      <p class="date">24 de Agosto 2026</p>
+    </div>
+  </section>
+
+  <!-- FRASE -->
+  <section class="section light">
+    <div class="container">
+      <p class="verse">
+        “Ya no son dos, sino uno solo.
+        Por tanto, lo que Dios ha unido,
+        que no lo separe el hombre.”
+        <br><span>Mateo 19:6</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTADOR -->
+  <section class="section light-green">
+    <div class="container">
+      <h2>Faltan</h2>
+      <div id="countdown" class="countdown"></div>
+    </div>
+  </section>
+
+  <!-- CEREMONIA -->
+  <section class="section ceremony">
+
+    <img src="assets/img/hoja-salvia.png" class="leaf-ceremony top">
+    <img src="assets/img/hoja-salvia.png" class="leaf-ceremony bottom">
+
+    <div class="container">
+      <h2>Ceremonia Religiosa</h2>
+      <p>Iglesia San Pedro</p>
+      <p>18:00 hs</p>
+      <a href="https://www.google.com/maps?q=Iglesia+San+Pedro+Buenos+Aires" target="_blank" class="btn">
+        Ver ubicación
+      </a>
+    </div>
+  </section>
+
+  <!-- RECEPCIÓN -->
+  <section class="section light">
+    <div class="container">
+      <h2>Recepción</h2>
+      <p>Jardín Padilla</p>
+      <p>20:00 hs</p>
+      <a href="#" class="btn">Ver ubicación</a>
+    </div>
+  </section>
+
+  <div class="scroll-arrow" id="scrollArrow">↓</div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
