@@ -107,6 +107,7 @@ body {
   background: linear-gradient(135deg, #f8f9fa, #f6f3f9);
 }
 
+
 /* Wrapper */
 .phone-wrapper {
   display: flex;
@@ -203,4 +204,8 @@ footer {
     width: 200px;
     height: 420px;
   }
+}
+
+html, body {
+  overflow-x: hidden;
 }
