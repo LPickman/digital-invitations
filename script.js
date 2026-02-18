@@ -1,55 +1,4 @@
 /* =========================
-   DARK / LIGHT MODE
-========================= */
-
-const toggleButton = document.getElementById("themeToggle");
-
-// Detectar preferencia guardada
-if (localStorage.getItem("theme") === "light") {
-  document.body.classList.add("light-mode");
-  toggleButton.textContent = "☀️";
-} else if (!localStorage.getItem("theme")) {
-  if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-    document.body.classList.add("light-mode");
-    toggleButton.textContent = "☀️";
-  }
-}
-
-toggleButton.addEventListener("click", () => {
-
-  // Animación fade out
-  gsap.to("body", {
-    opacity: 0,
-    duration: 0.2,
-    onComplete: () => {
-
-      // Cambiar tema
-      document.body.classList.toggle("light-mode");
-
-      if (document.body.classList.contains("light-mode")) {
-        localStorage.setItem("theme", "light");
-        toggleButton.textContent = "☀️";
-      } else {
-        localStorage.setItem("theme", "dark");
-        toggleButton.textContent = "🌙";
-      }
-
-      // Fade in
-      gsap.to("body", {
-        opacity: 1,
-        duration: 0.2
-      });
-
-    }
-  });
-
-});
-
-
-
-
-
-/* =========================
    GSAP ANIMATIONS
 ========================= */
 
@@ -95,7 +44,7 @@ gsap.utils.toArray(".reveal").forEach((card) => {
   });
 });
 
-
+// Navbar entrada inicial
 gsap.from(".navbar", {
   y: -100,
   opacity: 0,
@@ -103,37 +52,45 @@ gsap.from(".navbar", {
   ease: "power3.out"
 });
 
+// Navbar mantiene fondo claro en scroll
 ScrollTrigger.create({
   start: "top -80",
-  onEnter: () => gsap.to(".navbar", { backgroundColor: "#000", duration: 0.3 }),
-  onLeaveBack: () => gsap.to(".navbar", { backgroundColor: "transparent", duration: 0.3 })
+  onEnter: () =>
+    gsap.to(".navbar", {
+      backgroundColor: "#ffffff",
+      duration: 0.3
+    }),
+  onLeaveBack: () =>
+    gsap.to(".navbar", {
+      backgroundColor: "#ffffff",
+      duration: 0.3
+    })
 });
 
-
-//Texto letra por letra
-
+/* =========================
+   TEXTO LETRA POR LETRA
+========================= */
 
 const text = document.querySelector(".hero-title");
-const letters = text.textContent.split("");
 
-text.textContent = "";
+if (text) {
+  const letters = text.textContent.split("");
+  text.textContent = "";
 
-letters.forEach(letter => {
-  const span = document.createElement("span");
-  span.textContent = letter;
-  text.appendChild(span);
-});
+  letters.forEach(letter => {
+    const span = document.createElement("span");
+    span.textContent = letter;
+    text.appendChild(span);
+  });
 
-gsap.from(".hero-title span", {
-  opacity: 0,
-  y: 20,
-  stagger: 0.02,
-  duration: 0.5,
-  ease: "power2.out"
-});
-
-
-
+  gsap.from(".hero-title span", {
+    opacity: 0,
+    y: 20,
+    stagger: 0.02,
+    duration: 0.5,
+    ease: "power2.out"
+  });
+}
 
 /* =========================
    CONFETTI AL CARGAR
@@ -141,7 +98,7 @@ gsap.from(".hero-title span", {
 
 window.addEventListener("load", () => {
 
-  const duration = 1 * 1000; // 1 segundo
+  const duration = 1000;
   const end = Date.now() + duration;
 
   (function frame() {
@@ -165,5 +122,3 @@ window.addEventListener("load", () => {
   })();
 
 });
-
-
