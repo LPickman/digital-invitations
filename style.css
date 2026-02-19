@@ -129,9 +129,8 @@ width: 50px;
 
 /* Celular */
 .phone {
-  width: 100%;
-  max-width: 260px;
-  aspect-ratio: 9 / 19; /* mantiene proporción tipo celular */
+  width: 260px;
+  height: 500px;
   background: #000;
   border-radius: 40px;
   padding: 12px;
@@ -140,6 +139,7 @@ width: 50px;
   overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
+
 
 
 /* Pantalla */
