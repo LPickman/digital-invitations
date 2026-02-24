@@ -106,14 +106,18 @@ window.addEventListener("load", () => {
       particleCount: 4,
       angle: 60,
       spread: 55,
-      origin: { x: 0 }
+      origin: { x: 0 },
+            colors: ["#ffffff", "#f8f8f8", "#f1f1f1"],
+
     });
 
     confetti({
       particleCount: 4,
       angle: 120,
       spread: 55,
-      origin: { x: 1 }
+      origin: { x: 1 },
+            colors: ["#ffffff", "#f8f8f8", "#f1f1f1"],
+
     });
 
     if (Date.now() < end) {
@@ -121,4 +125,45 @@ window.addEventListener("load", () => {
     }
   })();
 
+});
+
+/* =========================
+   FLECHA PROXIMA SECTION
+========================= */
+
+const sections = document.querySelectorAll("section");
+const arrow = document.getElementById("scrollArrow");
+
+arrow.addEventListener("click", () => {
+  const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+  let currentIndex = 0;
+
+  sections.forEach((section, index) => {
+    if (scrollPosition >= section.offsetTop) {
+      currentIndex = index;
+    }
+  });
+
+  const nextSection = sections[currentIndex + 1];
+
+  if (nextSection) {
+    nextSection.scrollIntoView({ behavior: "smooth" });
+  }
+});
+
+
+// =========================
+// Ocultar flecha en la última sección
+// =========================
+
+window.addEventListener("scroll", () => {
+  const lastSection = sections[sections.length - 1];
+  const arrowHeight = arrow.offsetHeight;
+
+  if (window.scrollY + window.innerHeight >= lastSection.offsetTop + 100) {
+    arrow.classList.add("hidden");
+  } else {
+    arrow.classList.remove("hidden");
+  }
 });

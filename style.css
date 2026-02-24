@@ -20,23 +20,23 @@ body {
 ========================= */
 
 .navbar {
-  background-color: #ffffff !important;
+  background-color: #977C60 !important;
 }
 
 .navbar .nav-link {
-  color: rgb(88, 87, 87) !important;
+  color: white  !important;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   font-weight: 300;
 }
 
-.navbar .nav-link:hover{
-  color: black !important;
+.navbar .nav-link:hover {
+  color: #211d1a !important;
   transition: all 0.3s ease-in-out;
 
 }
 
-.navbar-brand img{
-width: 50px;
+.navbar-brand img {
+  width: 50px;
 }
 
 /* =========================
@@ -45,18 +45,27 @@ width: 50px;
 
 .hero {
   height: 100vh;
-  background: linear-gradient(135deg, #74ebd5, #9face6);
+  background: linear-gradient(to bottom,
+      #977C60 0%,
+      #977C60 30%,
+      #FFF7ED 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000;
 }
 
+.hero .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* =========================
    CONTAINER
 ========================= */
 
-.servicios-section .container{
+.servicios-section .container {
   padding: 20px 0px 20px 0px;
 }
 
@@ -93,30 +102,130 @@ width: 50px;
 ========================= */
 
 .features {
-  background-color: #ffffff;
-  color: #212529;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #FFF7ED, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+
 .feature-box {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
 .feature-box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   FEATURES HEADER
+========================= */
+
+.section-header {
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+}
+
+.features-title {
+  padding: 50px 0px 0px 0px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #453C37;
+  position: relative;
+  display: inline-block;
+}
+
+.features-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #977C60;
+  margin: 15px auto 0;
+  border-radius: 10px;
+}
+
+.features-subtitle {
+  margin-top: 20px;
+  font-size: 1.05rem;
+  color: #6c757d;
+  font-weight: 300;
+}
+
+/* =========================
+   ICONOS DE CARDS
+========================= */
+
+.feature-icon {
+  color: #977C60;
+  transition: transform 0.3s ease;
+}
+
+.feature-box:hover .feature-icon {
+  transform: scale(1.15);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.container .btn {
+  background-color: #84776f !important;
+  color: #FFFFFF;
+  border: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif !important;
+  font-weight: 300;
+  transition: background .3s ease-in-out;
+
+}
+
+.container .btn:hover {
+  background-color: #453C37 !important;
+}
+
+.btns{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.container .whatsapp-btn{
+  background-color: transparent !important;
+  border: 1px solid white;
+  color: white;
 }
 
 /* =========================
    SERVICIOS - MOCKUP CELULAR
 ========================= */
 
+.servicios-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #453C37;
+}
+
+.servicios-subtitle {
+  color: #84776f;
+  font-weight: 300;
+  margin: 0 auto;
+}
+
+.servicio-text {
+  color: #84776f;
+  font-weight: 300;
+}
+
 .servicios-section {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #f8f9fa, #f6f3f9);
+  background: linear-gradient(to bottom, #FFFFFF);
 }
 
 
@@ -129,8 +238,8 @@ width: 50px;
 
 /* Celular */
 .phone {
-  width: 260px;
-  height: 500px;
+  width: 240px;
+  height: 480px;
   background: #000;
   border-radius: 40px;
   padding: 12px;
@@ -173,11 +282,9 @@ width: 50px;
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0.2),
-    rgba(255,255,255,0)
-  );
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0));
   transform: skewX(-25deg);
   transition: 0.6s;
 }
@@ -196,9 +303,60 @@ width: 50px;
    FOOTER
 ========================= */
 
-footer {
-  background-color: #f1f1f1;
-  color: #000;
+.footer {
+  background: linear-gradient(to bottom, #ffffff, #977C60 );
+  padding: 60px 0 30px;
+  text-align: center;
+}
+
+.footer-title {
+  font-weight: 600;
+  color: #453C37;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  max-width: 520px;
+  margin: 0 auto 30px;
+  color: #84776f;
+  font-weight: 300;
+}
+
+.footer-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.footer-btn {
+  background-color: #84776f;
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-weight: 300;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.footer-btn:hover {
+  background-color: #453C37;
+}
+
+.footer-social {
+  font-size: 22px;
+  color: #453C37;
+  transition: transform 0.3s ease;
+}
+
+.footer-social:hover {
+  transform: scale(1.2);
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: #FFFFFF;
 }
 
 /* =========================
@@ -220,6 +378,41 @@ footer {
   }
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
+}
+
+/* =========================
+   FLECHA PROXIMA SECTION
+========================= */
+
+
+.scroll-arrow {
+  position: fixed;
+  color: #453C37;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 1000;
+  animation: bounce 1.5s infinite;
+}
+
+.scroll-arrow.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, -10px);
+  }
 }
