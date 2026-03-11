@@ -20,11 +20,11 @@ body {
 ========================= */
 
 .navbar {
-  background-color: #977C60 !important;
+  background-color: #977c60a3 !important;
 }
 
 .navbar .nav-link {
-  color: white  !important;
+  color: #212529  !important;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
   font-weight: 300;
 }
@@ -415,4 +415,12 @@ body {
   50% {
     transform: translate(-50%, -10px);
   }
+}
+
+/* =========================
+   MENÚ HAMBURGUESA
+========================= */
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
 }

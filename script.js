@@ -29,6 +29,14 @@ gsap.from(".hero-btn", {
   ease: "back.out(1.7)"
 });
 
+gsap.from(".whatsapp-btn", {
+  scale: 0.8,
+  opacity: 0,
+  duration: 0.8,
+  delay: 0.6,
+  ease: "back.out(1.7)"
+});
+
 // Cards reveal
 gsap.utils.toArray(".reveal").forEach((card) => {
   gsap.from(card, {
