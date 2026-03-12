@@ -1,147 +1,156 @@
-// REVEAL ANIMATION
+// =========================
+// SCROLL ANIMATION
+// =========================
 
 const reveals = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(entries => {
+window.addEventListener("scroll", () => {
+  reveals.forEach(section => {
+    const windowHeight = window.innerHeight;
+    const sectionTop = section.getBoundingClientRect().top;
+    const visible = 100;
 
-entries.forEach(entry => {
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("active");
-
-}
-
-});
-
-},{threshold:0.2});
-
-reveals.forEach(section=>{
-observer.observe(section);
+    if (sectionTop < windowHeight - visible) {
+      section.classList.add("active");
+    }
+  });
 });
 
 
-// CONTADOR
+// =========================
+// CONTADOR REGRESIVO
+// =========================
 
+const weddingDate = new Date("2026-12-07T18:00:00").getTime(); //El formato es aaaa/mm/dd
 const countdownElement = document.getElementById("countdown");
 
-if(countdownElement){
+const countdown = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
 
-const weddingDate = new Date("2026-12-07T18:00:00").getTime();
+  if (distance <= 0) {
+    clearInterval(countdown);
+    countdownElement.innerHTML = "¡Es hoy! 💍";
+    return;
+  }
 
-setInterval(()=>{
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / 1000 / 60) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
 
-const now = new Date().getTime();
-const distance = weddingDate - now;
+  countdownElement.innerHTML =
+    `${days} días <br> ${hours} hs · ${minutes} min · ${seconds} seg`;
 
-if(distance <= 0){
-
-countdownElement.innerHTML="¡Es hoy! 💍";
-return;
-
-}
-
-const days=Math.floor(distance/(1000*60*60*24));
-const hours=Math.floor((distance/(1000*60*60))%24);
-const minutes=Math.floor((distance/1000/60)%60);
-const seconds=Math.floor((distance/1000)%60);
-
-countdownElement.innerHTML=
-`${days} días <br> ${hours} hs · ${minutes} min · ${seconds} seg`;
-
-},1000);
-
-}
+}, 1000);
 
 
-// CAMBIO TEMA
+// =========================
+// CAMBIO DE TEMA
+// =========================
 
-function setTheme(theme){
+function setTheme(theme) {
 
-if(theme==="salvia"){
+  if (theme === "salvia") {
+    document.documentElement.style.setProperty("--bg-main", "#f4f4f1");
+    document.documentElement.style.setProperty("--bg-section-light", "#e8ede6");
+    document.documentElement.style.setProperty("--bg-section-alt", "#c8d6c4");
+    document.documentElement.style.setProperty("--text-main", "#4d5a4d");
+    document.documentElement.style.setProperty("--btn-bg", "#5c6d5c");
+    document.documentElement.style.setProperty("--btn-hover", "#445244");
+  }
 
-document.documentElement.style.setProperty("--bg-main","#f4f4f1");
-document.documentElement.style.setProperty("--bg-section-light","#e8ede6");
-document.documentElement.style.setProperty("--bg-section-alt","#c8d6c4");
-document.documentElement.style.setProperty("--text-main","#4d5a4d");
-document.documentElement.style.setProperty("--btn-bg","#5c6d5c");
-document.documentElement.style.setProperty("--btn-hover","#445244");
+  if (theme === "beige") {
+    document.documentElement.style.setProperty("--bg-main", "#fdfaf6");
+    document.documentElement.style.setProperty("--bg-section-light", "#f6efe6");
+    document.documentElement.style.setProperty("--bg-section-alt", "#efe4d6");
+    document.documentElement.style.setProperty("--text-main", "#5c5045");
+    document.documentElement.style.setProperty("--btn-bg", "#d6c3ad");
+    document.documentElement.style.setProperty("--btn-hover", "#c5ae94");
+  }
 
-}
-
-if(theme==="beige"){
-
-document.documentElement.style.setProperty("--bg-main","#fdfaf6");
-document.documentElement.style.setProperty("--bg-section-light","#f6efe6");
-document.documentElement.style.setProperty("--bg-section-alt","#efe4d6");
-document.documentElement.style.setProperty("--text-main","#5c5045");
-document.documentElement.style.setProperty("--btn-bg","#d6c3ad");
-document.documentElement.style.setProperty("--btn-hover","#c5ae94");
-
-}
-
-if(theme==="rosa"){
-
-document.documentElement.style.setProperty("--bg-main","#fffafa");
-document.documentElement.style.setProperty("--bg-section-light","#fdeeee");
-document.documentElement.style.setProperty("--bg-section-alt","#f9dddd");
-document.documentElement.style.setProperty("--text-main","#7a5c61");
-document.documentElement.style.setProperty("--btn-bg","#e7b8c2");
-document.documentElement.style.setProperty("--btn-hover","#d99aaa");
-
-}
-
+  if (theme === "rosa") {
+    document.documentElement.style.setProperty("--bg-main", "#fffafa");
+    document.documentElement.style.setProperty("--bg-section-light", "#fdeeee");
+    document.documentElement.style.setProperty("--bg-section-alt", "#f9dddd");
+    document.documentElement.style.setProperty("--text-main", "#7a5c61");
+    document.documentElement.style.setProperty("--btn-bg", "#e7b8c2");
+    document.documentElement.style.setProperty("--btn-hover", "#d99aaa");
+  }
 }
 
 
-// BOTONES TEMA
+// =========================
+// BOTONES + CHECK ACTIVO
+// =========================
 
-const buttons=document.querySelectorAll(".theme-switcher button");
+const buttons = document.querySelectorAll(".theme-switcher button");
 
-buttons.forEach(button=>{
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
 
-button.addEventListener("click",()=>{
+    const theme = button.dataset.theme; // 👈 obtenemos el tema
 
-const theme=button.dataset.theme;
+    setTheme(theme); // 👈 aplicamos colores
 
-setTheme(theme);
-
-buttons.forEach(btn=>btn.classList.remove("active"));
-
-button.classList.add("active");
-
-});
-
+    buttons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+  });
 });
 
 
-// SCROLL FLECHA
+const sections = document.querySelectorAll("section");
+const arrow = document.getElementById("scrollArrow");
 
-const sections=document.querySelectorAll("section");
-const arrow=document.getElementById("scrollArrow");
+arrow.addEventListener("click", () => {
+  const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-arrow.addEventListener("click",()=>{
+  let currentIndex = 0;
 
-const scrollPosition=window.scrollY + window.innerHeight/2;
+  sections.forEach((section, index) => {
+    if (scrollPosition >= section.offsetTop) {
+      currentIndex = index;
+    }
+  });
 
-let currentIndex=0;
+  const nextSection = sections[currentIndex + 1];
 
-sections.forEach((section,index)=>{
-
-if(scrollPosition>=section.offsetTop){
-
-currentIndex=index;
-
-}
-
+  if (nextSection) {
+    nextSection.scrollIntoView({ behavior: "smooth" });
+  }
 });
 
-const nextSection=sections[currentIndex+1];
 
-if(nextSection){
+// =========================
+// Ocultar flecha en la última sección
+// =========================
 
-nextSection.scrollIntoView({behavior:"smooth"});
+window.addEventListener("scroll", () => {
+  const lastSection = sections[sections.length - 1];
+  const arrowHeight = arrow.offsetHeight;
 
+  if (window.scrollY + window.innerHeight >= lastSection.offsetTop + 100) {
+    arrow.classList.add("hidden");
+  } else {
+    arrow.classList.remove("hidden");
+  }
+});
+
+// =========================
+// CANCION
+// =========================
+
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+function toggleMusic(){
+
+if(music.paused){
+music.play();
+btn.innerText = "⏸ Pausar música";
+}else{
+music.pause();
+btn.innerText = "▶ Reproducir música";
 }
 
-});
+}

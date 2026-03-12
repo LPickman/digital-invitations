@@ -53,6 +53,16 @@ width: 50px;
   background: linear-gradient(135deg, #475948, #84b391) !important;
 }
 
+.section-2{
+  background: linear-gradient(135deg, #4d4a35, #898164) !important;
+}
+
+.section-2 a{
+  background-color: #463e2f !important;
+}
+
+
+
 .container-modelo {
   display: flex;
   align-items: center;
